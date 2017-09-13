@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.arboreto.entidade;
 
-/**
- *
- * @author Paulo
- */
-public class Administrador {
+import java.io.Serializable;
+import javax.persistence.Entity;
+
+@Entity
+public class Administrador implements Serializable {
+    
+    private Long id;
+    private String Nome;
+    private String Email;
+    private String Senha;
+    private Curso curso;
     
 }
