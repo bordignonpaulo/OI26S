@@ -13,7 +13,7 @@ public class Curso implements Serializable{
     
     @Id@GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descricao;
+    private String nome;
     
     public Curso(){
         super();
@@ -27,12 +27,12 @@ public class Curso implements Serializable{
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricao(String nome) {
+        this.nome = nome;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class Curso implements Serializable{
 
     @Override
     public String toString() {
-        return "Curso{" + "id=" + id + ", descricao=" + descricao + '}';
+        return "Curso{" + "id=" + id + ", nome=" + nome + '}';
     }
     
 }

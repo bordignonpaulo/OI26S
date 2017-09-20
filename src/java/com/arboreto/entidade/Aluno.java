@@ -13,7 +13,7 @@ public class Aluno implements Serializable{
     @Id@GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String ra;
+    private Integer ra;
     private String email;
     private String senha;
     @ManyToOne
@@ -39,11 +39,11 @@ public class Aluno implements Serializable{
         this.nome = nome;
     }
 
-    public String getRa() {
+    public Integer getRa() {
         return ra;
     }
 
-    public void setRa(String ra) {
+    public void setRa(Integer ra) {
         this.ra = ra;
     }
 

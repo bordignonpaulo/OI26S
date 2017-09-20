@@ -8,14 +8,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class AdministradorBean {
+public class AdministradorBean implements IAdministrador {
     @PersistenceContext
     private EntityManager em;
     
-    public void cadastrar(Curso curso){
+    @Override
+    public void create(String nome, String email, String senha, Curso curso){
         Administrador adm = new Administrador();
         
+        adm.setNome(nome);
+        adm.setEmail(email);
+        adm.setSenha(senha);
         adm.setCurso(curso);
+        
         em.persist(adm);
         
     }; 
