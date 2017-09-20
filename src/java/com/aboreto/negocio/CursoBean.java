@@ -2,6 +2,7 @@
 package com.aboreto.negocio;
 
 import com.arboreto.entidade.Curso;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,6 +20,11 @@ public class CursoBean implements ICurso {
         curso.setDescricao(nome);
         
         em.persist(curso);
+    }
+
+    @Override
+    public List<Curso> consultar() {
+        return em.createQuery("SELECT c FROM Curso c", Curso.class).getResultList();
     }
     
 }

@@ -3,6 +3,7 @@ package com.aboreto.negocio;
 
 import com.arboreto.entidade.Administrador;
 import com.arboreto.entidade.Curso;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,5 +24,10 @@ public class AdministradorBean implements IAdministrador {
         
         em.persist(adm);
         
-    }; 
+    };
+    
+    @Override
+    public List<Administrador> consultar() {
+        return em.createQuery("SELECT a FROM Administrador a", Administrador.class).getResultList();
+    }
 }

@@ -3,6 +3,7 @@ package com.aboreto.negocio;
 
 import com.arboreto.entidade.Aluno;
 import com.arboreto.entidade.Curso;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,5 +27,8 @@ public class AlunoBean implements IAluno{
         em.persist(aluno);
     }
     
+    public List<Aluno> consultar() {
+        return em.createQuery("SELECT a FROM Aluno a", Aluno.class).getResultList();
+    }
     
 }

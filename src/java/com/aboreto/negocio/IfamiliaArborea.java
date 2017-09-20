@@ -1,14 +1,14 @@
 
 package com.aboreto.negocio;
 
-import com.arboreto.entidade.Curso;
+import com.arboreto.entidade.familiaArborea;
 import java.util.List;
 import javax.ejb.Local;
 
 @Local
-public interface ICurso {
+public interface IfamiliaArborea {
     
     public void create(String nome);
-    public List<Curso> consultar();
+    public List<familiaArborea> consultar();
     
 }
