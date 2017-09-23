@@ -2,21 +2,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Arboreto</title>
+        <title>Arboreto System</title>
     </h:head>
     <h:body>
-        <p:inputText />
-        <p:password id="pwd1" value="#{passwordView.password5}" match="pwd2" label="Password 1" required="true" />
-        
-        
-        <p>
-            <p:button value="Entrar" outcome="menu/paginainicial.xhtml"></p:button>
-        </p>
-        
-        
-        
+        <p:layout style="min-width:600px; min-height:200px;">
+
+            <p:layoutUnit position="west" resizable="true" size="200" minSize="40" maxSize="300">
+                <h:form>
+                    <p>
+                        <p:button outcome="/faces/administrador/cadastroAdministrador" value="Cadastro administrador"></p:button>
+                    </p>
+                    <p>
+                        <p:button outcome="/faces/aluno/cadastroAluno"  value="Cadastro aluno"></p:button>
+                    </p>
+                    <p>
+                        <p:button outcome="/faces/cursos/cadastroCurso"  value="Cadastro curso"></p:button>
+                    </p>
+                    <p>
+                        <p:button outcome="/faces/farborea/cadastrofArborea"  value="Cadastro família arbórea"></p:button>
+                    </p>
+                    <p>
+                        <p:button outcome="/faces/categorias/cadastroCategorias"  value="Cadastro categorias"></p:button>
+                    </p>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="central"></ui:insert>
+            </p:layoutUnit>
+
+        </p:layout>
+
     </h:body>
 </html>
 
