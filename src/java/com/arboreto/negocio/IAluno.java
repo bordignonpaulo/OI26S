@@ -1,5 +1,5 @@
 
-package com.aboreto.negocio;
+package com.arboreto.negocio;
 
 import com.arboreto.entidade.Aluno;
 import com.arboreto.entidade.Curso;

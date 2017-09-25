@@ -1,5 +1,5 @@
 
-package com.aboreto.negocio;
+package com.arboreto.negocio;
 
 import com.arboreto.entidade.familiaArborea;
 import java.util.List;

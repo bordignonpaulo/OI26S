@@ -1,5 +1,5 @@
 
-package com.aboreto.negocio;
+package com.arboreto.negocio;
 
 import com.arboreto.entidade.Aluno;
 import com.arboreto.entidade.Curso;
@@ -27,6 +27,7 @@ public class AlunoBean implements IAluno{
         em.persist(aluno);
     }
     
+    @Override
     public List<Aluno> consultar() {
         return em.createQuery("SELECT a FROM Aluno a", Aluno.class).getResultList();
     }

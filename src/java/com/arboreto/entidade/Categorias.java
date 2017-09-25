@@ -1,14 +1,15 @@
 
 package com.arboreto.entidade;
 
+import java.io.Serializable;
 import java.util.Objects;
-import javax.annotation.Generated;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-public class Categorias {
+@Entity
+public class Categorias implements Serializable {
     
     @Id@GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;

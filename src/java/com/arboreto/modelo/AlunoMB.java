@@ -1,8 +1,8 @@
 
 package com.arboreto.modelo;
 
-import com.aboreto.negocio.IAluno;
-import com.aboreto.negocio.ICurso;
+import com.arboreto.negocio.IAluno;
+import com.arboreto.negocio.ICurso;
 import com.arboreto.entidade.Aluno;
 import com.arboreto.entidade.Curso;
 import java.util.List;

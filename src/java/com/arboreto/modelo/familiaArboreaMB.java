@@ -1,8 +1,9 @@
 
 package com.arboreto.modelo;
 
-import com.aboreto.negocio.IfamiliaArborea;
+import com.arboreto.negocio.IfamiliaArborea;
 import com.arboreto.entidade.familiaArborea;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -10,7 +11,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 @SessionScoped
-public class familiaArboreaMB {
+public class familiaArboreaMB implements Serializable{
     
     private String nome;
     

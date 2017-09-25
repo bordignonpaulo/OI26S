@@ -1,7 +1,7 @@
 
 package com.arboreto.modelo;
 
-import com.aboreto.negocio.ICategoria;
+import com.arboreto.negocio.ICategoria;
 import com.arboreto.entidade.Categorias;
 import java.util.List;
 import javax.ejb.EJB;
