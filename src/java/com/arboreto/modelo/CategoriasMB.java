@@ -31,8 +31,14 @@ public class CategoriasMB {
         return categoriaBean.consultar();
     }
     
-    public void add(){
-        categoriaBean.create(this.getNome());
+    public String add(){
+        try {
+             categoriaBean.create(this.getNome());
+             return "adicionado";
+        } catch (Exception e) {
+            return "erro";
+        }
+       
     }
     
 }

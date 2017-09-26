@@ -77,8 +77,14 @@ public class AlunoMB {
         return alunoBean.consultar();
     }
     
-    public void add(){
-        alunoBean.create(this.getNome(), this.getRa(), this.getEmail(), this.getSenha(), this.getCursoId());
+    public String add(){
+        try {
+            alunoBean.create(this.getNome(), this.getRa(), this.getEmail(), this.getSenha(), this.getCursoId());
+            return "adicionado";
+        } catch (Exception e) {
+            return "erro";
+        }
+        
     }
     
 }

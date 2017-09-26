@@ -1,4 +1,3 @@
-
 package com.arboreto.modelo;
 
 import com.arboreto.negocio.IfamiliaArborea;
@@ -11,10 +10,10 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 @SessionScoped
-public class familiaArboreaMB implements Serializable{
-    
+public class familiaArboreaMB implements Serializable {
+
     private String nome;
-    
+
     @EJB
     private IfamiliaArborea farboreaBean;
 
@@ -25,13 +24,18 @@ public class familiaArboreaMB implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public List<familiaArborea> listFamiliaArborea(){
+
+    public List<familiaArborea> listFamiliaArborea() {
         return farboreaBean.consultar();
     }
-    
-    public void add(){
-        farboreaBean.create(this.getNome());
+
+    public String add() {
+        try {
+            farboreaBean.create(this.getNome());
+            return "adicionado";
+        } catch (Exception e) {
+            return "erro";
+        }
+
     }
-    
 }

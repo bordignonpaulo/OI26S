@@ -71,12 +71,12 @@ public class AdministradorMB {
         return admBean.consultar();
     }
     
-    public void add(){
+    public String add(){
         try{
-            
             admBean.create(this.getNome(), this.getEmail(), this.getSenha(), this.getCursoId());
+            return "adicionado";
         }catch(Exception e){
-            System.out.println(e);
+            return "erro";
         }
         
     }
