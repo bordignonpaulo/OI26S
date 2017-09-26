@@ -4,6 +4,7 @@ package com.arboreto.negocio;
 import com.arboreto.entidade.Aluno;
 import com.arboreto.entidade.Curso;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,9 +14,21 @@ public class AlunoBean implements IAluno{
     
     @PersistenceContext
     private EntityManager em;
+    
+    @EJB
+    private ICurso cursoBean;
 
     @Override
-    public void create(String nome, Integer RA, String email, String senha, Curso curso) {
+    public void create(String nome, Integer RA, String email, String senha, Long cursoId) {
+        
+        // Descobre o estado que tem esse ID
+        Curso curso = null;
+        
+        for (Curso c: cursoBean.consultar())
+            if (c.getId() == cursoId)
+                curso = c;
+        
+        
         Aluno aluno = new Aluno();
         
         aluno.setNome(nome);

@@ -16,8 +16,8 @@ public class AdministradorMB {
     
     private String nome;
     private String email;
-    private Integer ra;
-    private Curso curso;
+    private String senha;
+    private Long cursoId;
     
     private List<Curso> cursos;
     
@@ -43,21 +43,24 @@ public class AdministradorMB {
         this.email = email;
     }
 
-    public Integer getRa() {
-        return ra;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setRa(Integer ra) {
-        this.ra = ra;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public Curso getCurso() {
-        return curso;
+    public Long getCursoId() {
+        return cursoId;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setCursoId(Long cursoId) {
+        this.cursoId = cursoId;
     }
+
+    
+    
     
     public List<Curso> listCursos(){
         return cursoBean.consultar();
@@ -68,7 +71,13 @@ public class AdministradorMB {
         return admBean.consultar();
     }
     
-    public void add(String nome, String email, String senha, Curso curso ){
-        admBean.create(nome, email, senha, curso);
+    public void add(){
+        try{
+            
+            admBean.create(this.getNome(), this.getEmail(), this.getSenha(), this.getCursoId());
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
     }
 }

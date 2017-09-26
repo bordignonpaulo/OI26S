@@ -9,7 +9,7 @@ import javax.ejb.Local;
 @Local
 public interface IAdministrador {
     
-    public void create(String nome, String email, String senha, Curso curso);
+    public void create(String nome, String email, String senha, Long curso);
     public List<Administrador> consultar();
     
 }

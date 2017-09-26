@@ -19,7 +19,7 @@ public class familiaArboreaBean implements IfamiliaArborea  {
         
         farborea.setNome(nome);
         
-        em.persist(nome);
+        em.persist(farborea);
         
     }
 

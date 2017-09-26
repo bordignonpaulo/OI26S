@@ -18,7 +18,7 @@ public class AlunoMB {
     private String email;
     private Integer ra;
     private String senha;
-    private Curso curso;
+    private Long cursoId;
     
     @EJB
     private ICurso cursoBean;
@@ -58,13 +58,15 @@ public class AlunoMB {
         this.senha = senha;
     }
 
-    public Curso getCurso() {
-        return curso;
+    public Long getCursoId() {
+        return cursoId;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setCursoId(Long cursoId) {
+        this.cursoId = cursoId;
     }
+
+    
     
     public List<Curso> listCursos(){
         return cursoBean.consultar();
@@ -75,8 +77,8 @@ public class AlunoMB {
         return alunoBean.consultar();
     }
     
-    public void add(String nome, Integer ra, String email, String senha, Curso curso){
-        alunoBean.create(nome, ra, email, senha, curso);
+    public void add(){
+        alunoBean.create(this.getNome(), this.getRa(), this.getEmail(), this.getSenha(), this.getCursoId());
     }
     
 }

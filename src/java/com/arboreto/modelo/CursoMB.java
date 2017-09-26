@@ -29,8 +29,14 @@ public class CursoMB {
         return cursoBean.consultar();
     }
     
-    public void add(String nome){
-        cursoBean.create(nome);
+    public String add(){
+        try {
+            cursoBean.create(this.getNome());
+            return "adicionado";
+        } catch (Exception e) {
+            return "erro";
+        }
+        
     }
     
 }

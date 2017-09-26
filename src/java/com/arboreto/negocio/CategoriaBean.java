@@ -18,6 +18,8 @@ public class CategoriaBean implements ICategoria{
         Categorias categoria = new Categorias();
         
         categoria.setNome(nome);
+        
+        em.persist(categoria);
     }
 
     @Override

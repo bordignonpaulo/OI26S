@@ -4,6 +4,7 @@ package com.arboreto.entidade;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class Administrador implements Serializable {
     private String Nome;
     private String Email;
     private String Senha;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Curso curso;
 
     public Administrador() {

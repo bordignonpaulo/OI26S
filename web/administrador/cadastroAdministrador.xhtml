@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Arboreto System</title>
     </h:head>
@@ -14,18 +15,21 @@
                     <p:panel id="basic" header="Cadastro de admnistrador"  style="margin-bottom:20px">
                         <h:panelGrid columns="1" cellpadding="5">
                             <p:outputLabel value=" Nome completo"></p:outputLabel>
-                            <p:inputText id="nome"/>
+                            <p:inputText value="#{administradorMB.nome}" id="nome"/>
 
                             <p:outputLabel value="E-mail"></p:outputLabel>
-                            <p:inputText id="email"/>
+                            <p:inputText value="#{administradorMB.email}" id="email"/>
 
                             <p:outputLabel value="Senha"></p:outputLabel>
-                            <p:password id="senha" />
+                            <p:password value="#{administradorMB.senha}" id="senha" />
 
                             <p:outputLabel value="Curso"></p:outputLabel>
+                            <p:selectOneMenu id="cursoList" value="#{administradorMB.cursoId}" >
+                                <f:selectItems value="#{administradorMB.listCursos()}" var = "curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" ></f:selectItems>
+                            </p:selectOneMenu>
 
 
-                            <p:commandButton value="Cadastrar"/>
+                            <p:commandButton value="Cadastrar" ajax="false" action="#{administradorMB.add()}"/>
 
                         </h:panelGrid>
                     </p:panel>      

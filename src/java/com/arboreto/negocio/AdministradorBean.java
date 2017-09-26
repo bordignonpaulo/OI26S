@@ -4,6 +4,7 @@ package com.arboreto.negocio;
 import com.arboreto.entidade.Administrador;
 import com.arboreto.entidade.Curso;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,8 +14,18 @@ public class AdministradorBean implements IAdministrador {
     @PersistenceContext
     private EntityManager em;
     
-    @Override
-    public void create(String nome, String email, String senha, Curso curso){
+    @EJB
+    private ICurso cursoBean;
+    
+    public void create(String nome, String email, String senha, Long cursoId){
+        
+        // Descobre o estado que tem esse ID
+        Curso curso = null;
+        
+        for (Curso c: cursoBean.consultar())
+            if (c.getId() == cursoId)
+                curso = c;
+        
         Administrador adm = new Administrador();
         
         adm.setNome(nome);

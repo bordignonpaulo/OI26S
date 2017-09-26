@@ -3,6 +3,7 @@ package com.arboreto.entidade;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,8 @@ public class Aluno implements Serializable{
     private Integer ra;
     private String email;
     private String senha;
-    @ManyToOne
+    
+    @ManyToOne (fetch = FetchType.EAGER)
     private Curso curso;
     
     public Aluno(){

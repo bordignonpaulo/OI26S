@@ -31,8 +31,8 @@ public class CategoriasMB {
         return categoriaBean.consultar();
     }
     
-    public void add(String nome){
-        categoriaBean.create(nome);
+    public void add(){
+        categoriaBean.create(this.getNome());
     }
     
 }

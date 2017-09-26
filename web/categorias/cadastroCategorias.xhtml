@@ -14,9 +14,9 @@
                     <p:panel id="basic" header="Cadastro de categorias"  style="margin-bottom:20px">
                         <h:panelGrid columns="1" cellpadding="5">
                             <p:outputLabel value=" Nome da categoria"></p:outputLabel>
-                            <p:inputText id="nome"/>
+                            <p:inputText value="#{categoriasMB.nome}" id="nome"/>
 
-                            <p:commandButton value="Cadastrar"/>
+                            <p:commandButton ajax="false" action="#{categoriasMB.add()}" value="Cadastrar"/>
 
                         </h:panelGrid>
                     </p:panel>      

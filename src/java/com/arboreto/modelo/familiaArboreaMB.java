@@ -30,8 +30,8 @@ public class familiaArboreaMB implements Serializable{
         return farboreaBean.consultar();
     }
     
-    public void add(String nome){
-        farboreaBean.create(nome);
+    public void add(){
+        farboreaBean.create(this.getNome());
     }
     
 }
