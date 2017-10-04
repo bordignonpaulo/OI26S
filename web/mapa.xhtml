@@ -5,8 +5,22 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
-    <h:body>
-        Hello from Facelets
+    <h:body onload="initMap();">
+        <div id="map" style="height: 700px; width: 100%;"></div>
+        <script>
+      function initMap(){
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'),{
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPVYzElOSkmFZqo1p2zXvweNDv9Ks05c"></script>
     </h:body>
 </html>
 
