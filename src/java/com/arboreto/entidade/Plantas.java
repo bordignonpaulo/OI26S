@@ -2,10 +2,13 @@
 package com.arboreto.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,10 +22,10 @@ private String longitude;
 private String nomeCientifico;
 private String caracteristicas;
 
-@ManyToOne
+@ManyToOne (fetch = FetchType.EAGER )
 private familiaArborea familia;
 
-@ManyToOne
+@ManyToMany (fetch = FetchType.EAGER)
 private Categorias categoria;
 
     public Plantas() {
@@ -89,16 +92,16 @@ private Categorias categoria;
         return familia;
     }
 
-    public void setFamilia(familiaArborea familia) {
-        this.familia = familia;
+    public void setFamilia(familiaArborea id) {
+        this.familia = id;
     }
 
     public Categorias getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categorias categoria) {
-        this.categoria = categoria;
+    public void setCategoria(Categorias id) {
+        this.categoria = id;
     }
 
     @Override
@@ -127,6 +130,8 @@ private Categorias categoria;
     public String toString() {
         return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", caracteristicas=" + caracteristicas + ", familia=" + familia + ", categoria=" + categoria + '}';
     }
+
+    
     
     
 
