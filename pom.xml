@@ -1,0 +1,42 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>OficinadeIntegracao</groupId>
+  <artifactId>OI26S</artifactId>
+  <version>1.0</version>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>5.0</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.glassfish.main.common</groupId>
+        <artifactId>glassfish-api</artifactId>
+        <version>4.1.1</version>
+    </dependency>
+  </dependencies>
+  
+  <build>  
+    <finalName>OI26S</finalName>
+    
+    <sourceDirectory>web</sourceDirectory>
+    
+    
+    
+    
+    
+    
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+                <outputDirectory>/Users/Paulo/Documents/UTFPR/6º Semestre/Oficina Integração II/Projeto/Maven/OI26S</outputDirectory>              
+            </configuration>
+        </plugin>
+  </plugins>
+  </build>
+</project>
+
