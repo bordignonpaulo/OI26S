@@ -3,6 +3,7 @@ package com.arboreto.entidade;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,8 +26,8 @@ private String caracteristicas;
 @ManyToOne (fetch = FetchType.EAGER )
 private familiaArborea familia;
 
-@ManyToMany (fetch = FetchType.EAGER)
-private Categorias categoria;
+@ElementCollection(fetch = FetchType.EAGER)
+private List<Categorias> categoria;
 
     public Plantas() {
         super();
@@ -96,13 +97,15 @@ private Categorias categoria;
         this.familia = id;
     }
 
-    public Categorias getCategoria() {
+    public List<Categorias> getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categorias id) {
-        this.categoria = id;
+    public void setCategoria(List<Categorias> categoria) {
+        this.categoria = categoria;
     }
+
+   
 
     @Override
     public int hashCode() {
@@ -130,6 +133,7 @@ private Categorias categoria;
     public String toString() {
         return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", caracteristicas=" + caracteristicas + ", familia=" + familia + ", categoria=" + categoria + '}';
     }
+ 
 
     
     

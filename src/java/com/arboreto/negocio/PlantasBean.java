@@ -44,7 +44,7 @@ public class PlantasBean implements IPlantas {
         plantas.setNomeCientifico(nomeCientifico);
         plantas.setCaracteristicas(caracteristicas);
         plantas.setFamilia(farborea);
-        plantas.setCategoria((Categorias) categoria);
+       plantas.set 
         
         em.persist(plantas);
     }
