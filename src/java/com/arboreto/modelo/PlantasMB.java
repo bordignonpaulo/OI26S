@@ -5,7 +5,6 @@ import com.arboreto.entidade.Categorias;
 import com.arboreto.negocio.ICategoria;
 import com.arboreto.negocio.IPlantas;
 import com.arboreto.negocio.IfamiliaArborea;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -25,8 +24,6 @@ public class PlantasMB {
     private String caracteristicas;
     
     private Long familiaarboreaId;
-    
-    private Categorias categoria;
     private List<Categorias> categorias;
     
     @EJB
@@ -116,19 +113,6 @@ public class PlantasMB {
 
     public void setCategoriaBean(ICategoria CategoriaBean) {
         this.CategoriaBean = CategoriaBean;
-    }
-    
-    public String adicionaPassageiro() {
-
-        if (categorias == null) {
-            categorias = new ArrayList<>();
-        }
-
-        categorias.add(categoria);
-
-        categoria = new Categorias();
-        
-        return "adicionado";
     }
     
     public String add(){

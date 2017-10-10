@@ -1,33 +1,32 @@
+
 package com.arboreto.entidade;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Plantas implements Serializable {
+@Id@GeneratedValue (strategy = GenerationType.IDENTITY)
+private long Id;
+private String nome;
+private String origem;
+private String latitude;
+private String longitude;
+private String nomeCientifico;
+private String caracteristicas;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
-    private String nome;
-    private String origem;
-    private String latitude;
-    private String longitude;
-    private String nomeCientifico;
-    private String caracteristicas;
+@ManyToOne (fetch = FetchType.EAGER )
+private familiaArborea familia;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private familiaArborea familia;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    private List<Categorias> categorias;
+@ManyToMany (fetch = FetchType.EAGER)
+private Categorias categoria;
 
     public Plantas() {
         super();
@@ -97,26 +96,23 @@ public class Plantas implements Serializable {
         this.familia = id;
     }
 
-    public List<Categorias> getCategorias() {
-        return categorias;
+    public Categorias getCategoria() {
+        return categoria;
     }
 
-    public void setCategorias(List<Categorias> categorias) {
-        this.categorias = categorias;
+    public void setCategoria(Categorias id) {
+        this.categoria = id;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + (int) (this.Id ^ (this.Id >>> 32));
+        int hash = 7;
+        hash = 41 * hash + (int) (this.Id ^ (this.Id >>> 32));
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -130,17 +126,15 @@ public class Plantas implements Serializable {
         return true;
     }
 
-    
-
-    
-
-   
-
     @Override
     public String toString() {
-        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", caracteristicas=" + caracteristicas + ", familia=" + familia + ", categorias=" + categorias + '}';
+        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", caracteristicas=" + caracteristicas + ", familia=" + familia + ", categoria=" + categoria + '}';
     }
 
-   
+    
+    
+    
 
+
+    
 }
