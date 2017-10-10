@@ -29,11 +29,6 @@ public class PlantasBean implements IPlantas {
         for (familiaArborea fa: familiaArboreaBean.consultar())
             if (fa.getId() == familia)
                 farborea = fa;
-        
-        
-        
-        
-       
 
         Plantas plantas = new Plantas();
 
@@ -44,7 +39,7 @@ public class PlantasBean implements IPlantas {
         plantas.setNomeCientifico(nomeCientifico);
         plantas.setCaracteristicas(caracteristicas);
         plantas.setFamilia(farborea);
-        plantas.setCategoria((Categorias) categoria);
+        plantas.setCategorias(categoria);
         
         em.persist(plantas);
     }
