@@ -1,37 +1,39 @@
-
 package com.arboreto.modelo;
 
 import com.arboreto.entidade.Categorias;
+import com.arboreto.entidade.Plantas;
+import com.arboreto.entidade.familiaArborea;
 import com.arboreto.negocio.ICategoria;
 import com.arboreto.negocio.IPlantas;
 import com.arboreto.negocio.IfamiliaArborea;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-
-
 @ManagedBean
 @SessionScoped
 public class PlantasMB {
-    
+
     private String nome;
     private String origem;
     private String latitude;
     private String longitude;
     private String nomeCientifico;
     private String caracteristicas;
-    
+
     private Long familiaarboreaId;
+
+    private Categorias categoria;
     private List<Categorias> categorias;
-    
+
     @EJB
     private IfamiliaArborea familiaArboreaBean;
-    
+
     @EJB
     private ICategoria CategoriaBean;
-    
+
     @EJB
     private IPlantas plantasBean;
 
@@ -75,6 +77,14 @@ public class PlantasMB {
         this.nomeCientifico = nomeCientifico;
     }
 
+    public Categorias getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categorias categoria) {
+        this.categoria = categoria;
+    }
+
     public String getCaracteristicas() {
         return caracteristicas;
     }
@@ -115,13 +125,34 @@ public class PlantasMB {
         this.CategoriaBean = CategoriaBean;
     }
     
-    public String add(){
+    public List<familiaArborea> listFamiliaArborea(){
+        return familiaArboreaBean.consultar();
+        
+    }
+    
+    public String adicionaCategoria() {
+
+        if (categorias == null) {
+            categorias = new ArrayList<>();
+        }
+
+        categorias.add(categoria);
+
+        categoria = new Categorias();
+        
+        return "adicionado";
+    }
+    public String add() {
         try {
-            plantasBean.create(this.getNome(), this.getOrigem(), this.getLatitude(), this.getLongitude(), this.getNomeCientifico(), this.getCaracteristicas(), this.getFamiliaarboreaId(),this.getCategorias());
+            plantasBean.create(this.getNome(), this.getOrigem(), this.getLatitude(), this.getLongitude(), this.getNomeCientifico(), this.getCaracteristicas(), this.getFamiliaarboreaId(), this.getCategorias());
             return "adicionado";
         } catch (Exception e) {
             return "erro";
         }
-        
-    }    
+
+    }
+
+    public List<Plantas> listaPlantas() {
+        return plantasBean.consultar();
+    }
 }
