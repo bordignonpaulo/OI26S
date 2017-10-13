@@ -130,6 +130,11 @@ public class PlantasMB {
         
     }
     
+    public List<Categorias> listCategorias(){
+        return CategoriaBean.consultar();
+        
+    }
+    
     public String adicionaCategoria() {
 
         if (categorias == null) {

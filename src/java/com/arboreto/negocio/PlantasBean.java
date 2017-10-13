@@ -25,10 +25,12 @@ public class PlantasBean implements IPlantas {
             Long familia, List<Categorias> categoria) {
 
         familiaArborea farborea = null;
-        
-        for (familiaArborea fa: familiaArboreaBean.consultar())
-            if (fa.getId() == familia)
+
+        for (familiaArborea fa : familiaArboreaBean.consultar()) {
+            if (fa.getId() == familia) {
                 farborea = fa;
+            }
+        }
 
         Plantas plantas = new Plantas();
 
@@ -39,13 +41,13 @@ public class PlantasBean implements IPlantas {
         plantas.setNomeCientifico(nomeCientifico);
         plantas.setCaracteristicas(caracteristicas);
         plantas.setFamilia(farborea);
-       plantas.setCategoria(categoria);
-        
+        plantas.setCategoria(categoria);
+
         em.persist(plantas);
     }
-    
+
+    @Override
     public List<Plantas> consultar() {
         return em.createQuery("SELECT p FROM Plantas p", Plantas.class).getResultList();
     }
 }
-

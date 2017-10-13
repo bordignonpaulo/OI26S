@@ -15,16 +15,12 @@
 
                 <h:form>
                     <p:panel header="Plantas ">
-                        <p:dataTable var="familiaArborea" value="#{plantasMB.listaPlantas()}">
-
-                            <p:column headerText="Id">
-                                <h:outputText value="#{plantas.id}" />
-                            </p:column>
+                        <p:dataTable var="plantas" value="#{plantasMB.listaPlantas()}">
                             <p:column headerText="Nome">
                                 <h:outputText value="#{plantas.nome}" />
                             </p:column>
                             <p:column headerText="Nome cientifico">
-                                <h:outputText value="#{plantas.nomecientifico}" />
+                                <h:outputText value="#{plantas.nomeCientifico}" />
                             </p:column>
                             <p:column headerText="Caracteristicas">
                                 <h:outputText value="#{plantas.caracteristicas}" />
@@ -39,7 +35,7 @@
                                 <h:outputText value="#{plantas.longitude}" />
                             </p:column>
                             <p:column headerText="Familia Arborea">
-                                <h:outputText value="" />
+                                <h:outputText value="#{plantas.familia.nome}" />
                             </p:column>
                         </p:dataTable>
                     </p:panel>
