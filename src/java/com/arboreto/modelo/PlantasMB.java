@@ -6,15 +6,25 @@ import com.arboreto.entidade.familiaArborea;
 import com.arboreto.negocio.ICategoria;
 import com.arboreto.negocio.IPlantas;
 import com.arboreto.negocio.IfamiliaArborea;
-import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.primefaces.event.map.OverlaySelectEvent;
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
+
 @ManagedBean
 @SessionScoped
 public class PlantasMB {
+
+    private MapModel advancedModel;
+
+    private Marker marker;
 
     private String nome;
     private String origem;
@@ -138,5 +148,31 @@ public class PlantasMB {
 
     public List<Plantas> listaPlantas() {
         return plantasBean.consultar();
+    }
+
+    @PostConstruct
+    public void init() {
+        advancedModel = new DefaultMapModel();
+
+        plantasBean.consultar().forEach((p) -> {
+            double lat = Double.parseDouble(p.getLatitude());
+            double lng = Double.parseDouble(p.getLongitude());
+
+            LatLng latlng = new LatLng(lat, lng);
+
+            advancedModel.addOverlay(new Marker(latlng, p.getNome(), p.getCaracteristicas(), "../images/tree.png"));
+        });
+    }
+
+    public MapModel getAdvancedModel() {
+        return advancedModel;
+    }
+
+    public void onMarkerSelect(OverlaySelectEvent event) {
+        marker = (Marker) event.getOverlay();
+    }
+
+    public Marker getMarker() {
+        return marker;
     }
 }

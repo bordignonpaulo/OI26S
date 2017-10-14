@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class PlantasBean implements IPlantas {
-
+    
     @PersistenceContext
     private EntityManager em;
 
