@@ -15,13 +15,13 @@
                 
                 <h:form>
                     <p:panel header="Categorias">
-                        <p:dataTable var="categorias" value="#{categoriasMB.listCategoria()}">
+                        <p:dataTable var="categoria" value="#{categoriaMB.listCategoria()}">
 
                             <p:column headerText="Id">
-                                <h:outputText value="#{categorias.id}" />
+                                <h:outputText value="#{categoria.id}" />
                             </p:column>
                             <p:column headerText="Nome">
-                                <h:outputText value="#{categorias.nome}" />
+                                <h:outputText value="#{categoria.nome}" />
                             </p:column>                                                      
                         </p:dataTable>
                     </p:panel>

@@ -1,7 +1,7 @@
 
 package com.arboreto.negocio;
 
-import com.arboreto.entidade.Categorias;
+import com.arboreto.entidade.Categoria;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -9,5 +9,5 @@ import javax.ejb.Local;
 public interface ICategoria {
 
     public void create(String nome);
-    public List<Categorias> consultar();
+    public List<Categoria> consultar();
 }

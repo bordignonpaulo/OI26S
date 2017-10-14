@@ -9,13 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Categorias implements Serializable {
+public class Categoria implements Serializable {
     
     @Id@GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     
-    public Categorias(){
+    public Categoria(){
         super();
     }
 
@@ -53,7 +53,7 @@ public class Categorias implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Categorias other = (Categorias) obj;
+        final Categoria other = (Categoria) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

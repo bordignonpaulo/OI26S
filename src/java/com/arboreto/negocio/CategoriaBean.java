@@ -1,7 +1,7 @@
 
 package com.arboreto.negocio;
 
-import com.arboreto.entidade.Categorias;
+import com.arboreto.entidade.Categoria;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -15,7 +15,7 @@ public class CategoriaBean implements ICategoria{
 
     @Override
     public void create(String nome) {
-        Categorias categoria = new Categorias();
+        Categoria categoria = new Categoria();
         
         categoria.setNome(nome);
         
@@ -23,8 +23,8 @@ public class CategoriaBean implements ICategoria{
     }
 
     @Override
-    public List<Categorias> consultar() {
-        return em.createQuery("SELECT c FROM Categorias c", Categorias.class).getResultList();
+    public List<Categoria> consultar() {
+        return em.createQuery("SELECT c FROM Categoria c", Categoria.class).getResultList();
     }
 
     

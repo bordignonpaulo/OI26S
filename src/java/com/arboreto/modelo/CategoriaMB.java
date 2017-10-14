@@ -2,7 +2,7 @@
 package com.arboreto.modelo;
 
 import com.arboreto.negocio.ICategoria;
-import com.arboreto.entidade.Categorias;
+import com.arboreto.entidade.Categoria;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -12,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class CategoriasMB {
+public class CategoriaMB {
     
     private String nome;
     
@@ -27,7 +27,7 @@ public class CategoriasMB {
         this.nome = nome;
     }
     
-    public List<Categorias> listCategoria(){
+    public List<Categoria> listCategoria(){
         return categoriaBean.consultar();
     }
     

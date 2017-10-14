@@ -1,6 +1,6 @@
 package com.arboreto.negocio;
 
-import com.arboreto.entidade.Categorias;
+import com.arboreto.entidade.Categoria;
 import com.arboreto.entidade.familiaArborea;
 import com.arboreto.entidade.Plantas;
 import java.util.List;
@@ -21,8 +21,9 @@ public class PlantasBean implements IPlantas {
     @EJB
     private ICategoria CategoriaBean;
 
+    @Override
     public void create(String nome, String origem, String latitude, String longitude, String nomeCientifico, String caracteristicas,
-            Long familia, List<Categorias> categoria) {
+            Long familia, List<Categoria> categoria) {
 
         familiaArborea farborea = null;
 

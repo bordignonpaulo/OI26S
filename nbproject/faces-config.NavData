@@ -6,13 +6,13 @@
         <Node id="plantas/cadastroplantas.xhtml" x="791" y="393" zoom="true"/>
         <Node id="index.xhtml" x="420" y="-79" zoom="true"/>
         <Node id="mapa.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="cursos/cadastroCurso.xhtml" x="455" y="394" zoom="true"/>
         <Node id="administrador/cadastroAdministrador.xhtml" x="347" y="185" zoom="true"/>
+        <Node id="cursos/cadastroCurso.xhtml" x="455" y="394" zoom="true"/>
         <Node id="farborea/cadastrofArborea.xhtml" x="762" y="188" zoom="true"/>
         <Node id="administrador/administrador.xhtml" x="370" y="65" zoom="true"/>
+        <Node id="aluno/cadastroAluno.xhtml" x="23" y="187" zoom="true"/>
         <Node id="aluno/aluno.xhtml" x="50" y="66" zoom="true"/>
         <Node id="cursos/curso.xhtml" x="474" y="291" zoom="true"/>
-        <Node id="aluno/cadastroAluno.xhtml" x="23" y="187" zoom="true"/>
         <Node id="central.xhtml" x="422" y="-1" zoom="true"/>
         <Node id="categorias/categorias.xhtml" x="42" y="285" zoom="false"/>
         <Node id="plantas/plantas.xhtml" x="799" y="278" zoom="true"/>

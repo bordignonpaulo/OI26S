@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -27,7 +26,7 @@ private String caracteristicas;
 private familiaArborea familia;
 
 @ElementCollection(fetch = FetchType.EAGER)
-private List<Categorias> categoria;
+private List<Categoria> categoria;
 
     public Plantas() {
         super();
@@ -97,11 +96,11 @@ private List<Categorias> categoria;
         this.familia = id;
     }
 
-    public List<Categorias> getCategoria() {
+    public List<Categoria> getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(List<Categorias> categoria) {
+    public void setCategoria(List<Categoria> categoria) {
         this.categoria = categoria;
     }
 

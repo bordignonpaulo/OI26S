@@ -30,7 +30,7 @@
                             <p:inputText value="#{plantasMB.longitude}" id="longitude"/>
                             
                             <p:outputLabel value="Características"></p:outputLabel>
-                            <p:inputTextarea value="#{plantasMB.caracteristicas}" rows="5" cols="30"  maxlength="10" autoResize="false" />
+                            <p:inputTextarea value="#{plantasMB.caracteristicas}" rows="5" cols="30" autoResize="false" />
 
                             <p:outputLabel value="Familia arborea"></p:outputLabel>
                             <p:selectOneMenu id="familiaList" value="#{plantasMB.familiaarboreaId}" >
@@ -39,15 +39,15 @@
 
                             <p:outputLabel value="Selecione origem:  "></p:outputLabel>                    
 
-                            <p:dataTable var="categorias"   value="#{plantasMB.listCategorias()}" selection="#{plantasMB.categoria}" rowKey="#{categorias.id}">
+                            <p:dataTable var="categoria"   value="#{plantasMB.listCategorias()}" selection="#{plantasMB.categoria}" rowKey="#{categoria.id}">
 
-                                <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 
                                 <p:column headerText="Id">
-                                    <h:outputText value="#{categorias.id}" />
+                                    <h:outputText value="#{categoria.id}" />
                                 </p:column>
                                 <p:column headerText="Nome">
-                                    <h:outputText value="#{categorias.nome}" />
+                                    <h:outputText value="#{categoria.nome}" />
                                 </p:column>
                             </p:dataTable>                           
 
