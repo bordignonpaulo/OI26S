@@ -11,9 +11,9 @@
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
                 <h:form>
-                    <p:panel id="basic" header="Cadastro de cursos"  style="margin-bottom:20px">
+                    <p:panel id="basic" header="Cadastro de Cursos"  style="margin-bottom:20px">
                         <h:panelGrid columns="1" cellpadding="5">
-                            <p:outputLabel value=" Nome do curso"></p:outputLabel>
+                            <p:outputLabel value=" Nome do Curso"></p:outputLabel>
                             <p:inputText value="#{cursoMB.nome}"  id="nome"/>
 
                             <p:commandButton ajax="false" value="Cadastrar" action="#{cursoMB.add()}"/>

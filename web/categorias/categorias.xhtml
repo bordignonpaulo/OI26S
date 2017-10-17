@@ -11,10 +11,10 @@
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
                 
-                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar categoria"/>
+                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar Tipo de Uso"/>
                 
                 <h:form>
-                    <p:panel header="Categorias">
+                    <p:panel header="Tipos de Uso">
                         <p:dataTable var="categorias" value="#{categoriasMB.listCategoria()}">
 
                             <p:column headerText="Id">

@@ -12,32 +12,26 @@
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
                 <h:form>
-                    <p:panel id="basic" header="Cadastro de planta"  style="margin-bottom:20px">
+                    <p:panel id="basic" header="Cadastro de Planta"  style="margin-bottom:20px">
                         <h:panelGrid columns="1" cellpadding="5">
-                            <p:outputLabel value="Nome da planta"></p:outputLabel>
+                            <p:outputLabel value="Nome Vulgar"></p:outputLabel>
                             <p:inputText value="#{plantasMB.nome}" id="nome"/>
 
                             <p:outputLabel value="Nome Cientifico"></p:outputLabel>
                             <p:inputText value="#{plantasMB.nomeCientifico}" id="nomecientifico"/>
 
-                            <p:outputLabel value="Origem"></p:outputLabel>
-                            <p:inputText value="#{plantasMB.origem}" id="origem"/>
-
                             <p:outputLabel value="Latitude"></p:outputLabel>
                             <p:inputText value="#{plantasMB.latitude}" id="latitude"/>
 
                             <p:outputLabel value="Longitude"></p:outputLabel>
-                            <p:inputText value="#{plantasMB.longitude}" id="longitude"/>
-                            
-                            <p:outputLabel value="Características"></p:outputLabel>
-                            <p:inputTextarea value="#{plantasMB.caracteristicas}" rows="5" cols="30"  maxlength="10" autoResize="false" />
-
-                            <p:outputLabel value="Familia arborea"></p:outputLabel>
+                            <p:inputText value="#{plantasMB.longitude}" id="longitude"/>                           
+                           
+                            <p:outputLabel value="Família Botânica"></p:outputLabel>
                             <p:selectOneMenu id="familiaList" value="#{plantasMB.familiaarboreaId}" >
                                 <f:selectItems value="#{plantasMB.listFamiliaArborea()}" var = "familiaArborea" itemLabel="#{familiaArborea.nome}" itemValue="#{familiaArborea.id}" ></f:selectItems>
                             </p:selectOneMenu>
 
-                            <p:outputLabel value="Selecione origem:  "></p:outputLabel>                    
+                            <p:outputLabel value="Tipos de Uso"></p:outputLabel>                    
 
                             <p:dataTable var="categorias"   value="#{plantasMB.listCategorias()}" selection="#{plantasMB.categoria}" rowKey="#{categorias.id}">
 

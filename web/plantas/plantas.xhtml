@@ -11,22 +11,16 @@
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
 
-                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar planta"/>
+                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar Planta"/>
 
                 <h:form>
                     <p:panel header="Plantas ">
                         <p:dataTable var="plantas" value="#{plantasMB.listaPlantas()}">
-                            <p:column headerText="Nome">
+                            <p:column headerText="Nome Vulgar">
                                 <h:outputText value="#{plantas.nome}" />
                             </p:column>
-                            <p:column headerText="Nome cientifico">
+                            <p:column headerText="Nome Científico">
                                 <h:outputText value="#{plantas.nomeCientifico}" />
-                            </p:column>
-                            <p:column headerText="Caracteristicas">
-                                <h:outputText value="#{plantas.caracteristicas}" />
-                            </p:column>
-                            <p:column headerText="Origem">
-                                <h:outputText value="#{plantas.origem}" />
                             </p:column>
                             <p:column headerText="Latitude">
                                 <h:outputText value="#{plantas.latitude}" />
@@ -34,7 +28,7 @@
                             <p:column headerText="Longitude">
                                 <h:outputText value="#{plantas.longitude}" />
                             </p:column>
-                            <p:column headerText="Familia Arborea">
+                            <p:column headerText="Família Botânica">
                                 <h:outputText value="#{plantas.familia.nome}" />
                             </p:column>
                         </p:dataTable>

@@ -11,9 +11,9 @@
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
                 <h:form>
-                    <p:panel id="basic" header="Cadastro de categorias"  style="margin-bottom:20px">
+                    <p:panel id="basic" header="Cadastro de Tipo de Uso"  style="margin-bottom:20px">
                         <h:panelGrid columns="1" cellpadding="5">
-                            <p:outputLabel value=" Nome da categoria"></p:outputLabel>
+                            <p:outputLabel value=" Nome do Tipo de Uso"></p:outputLabel>
                             <p:inputText value="#{categoriasMB.nome}" id="nome"/>
 
                             <p:commandButton ajax="false" action="#{categoriasMB.add()}" value="Cadastrar"/>

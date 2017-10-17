@@ -10,7 +10,7 @@
     <h:body>
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
-                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar administrador"/>
+                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar Administrador"/>
                 
                 <h:form>
                     <p:panel header="Administradores">
@@ -24,7 +24,7 @@
                                 <h:outputText value="#{administrador.nome}" />
                             </p:column>
 
-                            <p:column headerText="Email">
+                            <p:column headerText="E-mail">
                                 <h:outputText value="#{administrador.email}" />
                             </p:column>
                             <p:column headerText="Curso">
