@@ -83,7 +83,10 @@ public class AdministradorMB {
     
     public String login(){
         try{
-            return "logado";
+            if(admBean.login(this.getEmail(), this.getSenha()) != null)
+                return "logado";
+            else
+                return "erro";
         }catch(Exception e){
             return "erro";
         }

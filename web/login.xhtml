@@ -11,10 +11,10 @@
             <h:form>
                 <p:panel id="basic" header="Arboreto System" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="10">
-                        <p:outputLabel value="Usuário" />
-                        <p:inputText id="email" value="#{administradorMB.email}"/>
+                        <p:outputLabel value="Email" />
+                        <p:inputText id="email" value="#{administradorMB.email}" required="required"/>
                         <p:outputLabel value="Senha"/>
-                        <p:password id="senha" value="#{administradorMB.senha}"/>
+                        <p:password id="senha" value="#{administradorMB.senha}" required="required"/>
                         <p:outputLabel/>
                         <p:commandButton value="Entrar" ajax="false" action="#{administradorMB.login()}"/>
                     </h:panelGrid>

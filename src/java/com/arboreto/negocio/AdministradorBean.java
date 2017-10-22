@@ -41,6 +41,8 @@ public class AdministradorBean implements IAdministrador {
     public List<Administrador> consultar() {
         return em.createQuery("SELECT a FROM Administrador a", Administrador.class).getResultList();
     }
-    
-    public
+    @Override
+    public List<Administrador> login(String email, String senha){
+       return em.createQuery("SELECT a FROM Administrador a WHERE (a.Senha = '" + senha + "') AND (a.Email = '"+ email+"')",Administrador.class).getResultList();
+    }
 }
