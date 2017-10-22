@@ -154,14 +154,14 @@ public class PlantasMB {
     public void init() {
         advancedModel = new DefaultMapModel();
 
-        plantasBean.consultar().forEach((p) -> {
+        /*plantasBean.consultar().forEach((p) -> {
             double lat = Double.parseDouble(p.getLatitude());
             double lng = Double.parseDouble(p.getLongitude());
 
             LatLng latlng = new LatLng(lat, lng);
 
             advancedModel.addOverlay(new Marker(latlng, p.getNome(), p.getCaracteristicas(), "../images/tree.png"));
-        });
+        });*/
     }
 
     public MapModel getAdvancedModel() {

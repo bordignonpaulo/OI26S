@@ -80,4 +80,13 @@ public class AdministradorMB {
         }
         
     }
+    
+    public String login(){
+        try{
+            return "logado";
+        }catch(Exception e){
+            return "erro";
+        }
+        
+    }
 }

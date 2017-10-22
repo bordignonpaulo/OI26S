@@ -41,4 +41,6 @@ public class AdministradorBean implements IAdministrador {
     public List<Administrador> consultar() {
         return em.createQuery("SELECT a FROM Administrador a", Administrador.class).getResultList();
     }
+    
+    public
 }

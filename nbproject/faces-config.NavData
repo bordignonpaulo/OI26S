@@ -14,6 +14,7 @@
         <Node id="aluno/aluno.xhtml" x="50" y="66" zoom="true"/>
         <Node id="cursos/curso.xhtml" x="474" y="291" zoom="true"/>
         <Node id="central.xhtml" x="422" y="-1" zoom="true"/>
+        <Node id="login.xhtml" x="418" y="-139" zoom="true"/>
         <Node id="categorias/categorias.xhtml" x="42" y="285" zoom="false"/>
         <Node id="plantas/plantas.xhtml" x="799" y="278" zoom="true"/>
         <Node id="categorias/cadastroCategorias.xhtml" x="17" y="391" zoom="true"/>
