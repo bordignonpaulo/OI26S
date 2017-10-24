@@ -28,7 +28,7 @@
 
                             <p:outputLabel value="Longitude"></p:outputLabel>
                             <p:inputText value="#{plantasMB.longitude}" id="longitude"/>
-                            
+
                             <p:outputLabel value="Características"></p:outputLabel>
                             <p:inputTextarea value="#{plantasMB.caracteristicas}" rows="5" cols="30" autoResize="false" />
 
@@ -51,9 +51,10 @@
                                 </p:column>
                             </p:dataTable>                           
 
-
+                            <p:fileUpload fileUploadListener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="false"
+                                          multiple="true" update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                            <p:growl id="messages" showDetail="true" />
                             <p:commandButton ajax="false" action="#{plantasMB.add()}" value="Cadastrar"/>
-
                         </h:panelGrid>
                     </p:panel>      
                 </h:form>

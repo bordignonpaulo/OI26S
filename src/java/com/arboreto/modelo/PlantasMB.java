@@ -154,7 +154,7 @@ public class PlantasMB {
     public void init() {
         advancedModel = new DefaultMapModel();
 
-        /*plantasBean.consultar().forEach((p) -> {
+       /* plantasBean.consultar().forEach((p) -> {
             double lat = Double.parseDouble(p.getLatitude());
             double lng = Double.parseDouble(p.getLongitude());
 

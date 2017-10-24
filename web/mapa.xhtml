@@ -13,23 +13,17 @@
         }
     </style>
     <h:body>
-        <h:form>  
+        <h:form>
             <p:gmap id="gmap" center="-25.701613, -53.097914" zoom="13" type="ROADMAP" model="#{plantasMB.advancedModel}" style="width:100%; min-height: 800px;">
-
                 <p:ajax event="overlaySelect" listener="#{plantasMB.onMarkerSelect(event)}" />
                 <p:gmapInfoWindow id="infoWindow">
                     <p:outputPanel style="text-align: center; display: block; margin: auto">
-
                         <p:graphicImage name="/" height="150" />
                         <br />
                         <h:outputText value="#{plantasMB.marker.title}" />
-
                     </p:outputPanel>
                 </p:gmapInfoWindow>
-
             </p:gmap>
-
-
         </h:form>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPVYzElOSkmFZqo1p2zXvweNDv9Ks05c"></script>
     </h:body>
