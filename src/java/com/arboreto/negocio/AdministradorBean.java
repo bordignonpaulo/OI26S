@@ -42,7 +42,7 @@ public class AdministradorBean implements IAdministrador {
         return em.createQuery("SELECT a FROM Administrador a", Administrador.class).getResultList();
     }
     @Override
-    public List<Administrador> login(String email, String senha){
-       return em.createQuery("SELECT a FROM Administrador a WHERE (a.Senha = '" + senha + "') AND (a.Email = '"+ email+"')",Administrador.class).getResultList();
+    public int login(String email, String senha){
+       return em.createQuery("SELECT a FROM Administrador a WHERE (a.Senha = '" + senha + "') AND (a.Email = '"+ email+"')",Administrador.class).getMaxResults();
     }
 }

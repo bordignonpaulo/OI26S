@@ -8,7 +8,7 @@ import javax.ejb.Local;
 @Local
 public interface IPlantas {
 
-    public void create(String nome, String origem, String latitude, String longitude, String nomeCientifico, String caracteristicas,
+    public void create(String nome, String origem, String latitude, String longitude, String nomeCientifico, 
             Long familia, List<Categoria> categoria);
 
     public List<Plantas> consultar();

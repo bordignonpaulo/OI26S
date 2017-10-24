@@ -20,7 +20,6 @@ private String origem;
 private String latitude;
 private String longitude;
 private String nomeCientifico;
-private String caracteristicas;
 
 @ManyToOne (fetch = FetchType.EAGER )
 private familiaArborea familia;
@@ -80,13 +79,6 @@ private List<Categoria> categoria;
         this.nomeCientifico = nomeCientifico;
     }
 
-    public String getCaracteristicas() {
-        return caracteristicas;
-    }
-
-    public void setCaracteristicas(String caracteristicas) {
-        this.caracteristicas = caracteristicas;
-    }
 
     public familiaArborea getFamilia() {
         return familia;
@@ -130,7 +122,7 @@ private List<Categoria> categoria;
 
     @Override
     public String toString() {
-        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", caracteristicas=" + caracteristicas + ", familia=" + familia + ", categoria=" + categoria + '}';
+        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", familia=" + familia + ", categoria=" + categoria + '}';
     }
  
 

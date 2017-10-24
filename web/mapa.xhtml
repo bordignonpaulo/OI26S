@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Arboreto System</title>
     </h:head>
@@ -13,19 +14,23 @@
         }
     </style>
     <h:body>
-        <h:form>
-            <p:gmap id="gmap" center="-25.701613, -53.097914" zoom="13" type="ROADMAP" model="#{plantasMB.advancedModel}" style="width:100%; min-height: 800px;">
-                <p:ajax event="overlaySelect" listener="#{plantasMB.onMarkerSelect(event)}" />
-                <p:gmapInfoWindow id="infoWindow">
-                    <p:outputPanel style="text-align: center; display: block; margin: auto">
-                        <p:graphicImage name="/" height="150" />
-                        <br />
-                        <h:outputText value="#{plantasMB.marker.title}" />
-                    </p:outputPanel>
-                </p:gmapInfoWindow>
-            </p:gmap>
-        </h:form>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPVYzElOSkmFZqo1p2zXvweNDv9Ks05c"></script>
+        <ui:composition template="/index.xhtml">
+            <ui:define name="central">
+                <h:form>
+                    <p:gmap id="gmap" center="-25.701613, -53.097914" zoom="13" type="ROADMAP" model="#{plantasMB.advancedModel}" style="width:100%; min-height: 800px;">
+                        <p:ajax event="overlaySelect" listener="#{plantasMB.onMarkerSelect(event)}" />
+                        <p:gmapInfoWindow id="infoWindow">
+                            <p:outputPanel style="text-align: center; display: block; margin: auto">
+                                <p:graphicImage name="/" height="150" />
+                                <br />
+                                <h:outputText value="#{plantasMB.marker.title}" />
+                            </p:outputPanel>
+                        </p:gmapInfoWindow>
+                    </p:gmap>
+                </h:form>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPVYzElOSkmFZqo1p2zXvweNDv9Ks05c"></script>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

@@ -11,7 +11,7 @@
     <h:body>
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
-                <h:form>
+                <h:form enctype="multipart/form-data">
                     <p:panel id="basic" header="Cadastro de planta"  style="margin-bottom:20px">
                         <h:panelGrid columns="1" cellpadding="5">
                             <p:outputLabel value="Nome da planta"></p:outputLabel>
@@ -21,7 +21,10 @@
                             <p:inputText value="#{plantasMB.nomeCientifico}" id="nomecientifico"/>
 
                             <p:outputLabel value="Origem"></p:outputLabel>
-                            <p:inputText value="#{plantasMB.origem}" id="origem"/>
+                            <p:selectOneRadio value="#{plantasMB.origem}" id="origem">
+                                <f:selectItem itemLabel="Nativa" itemValue="N"/>
+                                <f:selectItem itemLabel="Exótica" itemValue="E"/>
+                            </p:selectOneRadio>
 
                             <p:outputLabel value="Latitude"></p:outputLabel>
                             <p:inputText value="#{plantasMB.latitude}" id="latitude"/>
@@ -29,15 +32,12 @@
                             <p:outputLabel value="Longitude"></p:outputLabel>
                             <p:inputText value="#{plantasMB.longitude}" id="longitude"/>
 
-                            <p:outputLabel value="Características"></p:outputLabel>
-                            <p:inputTextarea value="#{plantasMB.caracteristicas}" rows="5" cols="30" autoResize="false" />
-
-                            <p:outputLabel value="Familia arborea"></p:outputLabel>
+                            <p:outputLabel value="Família botânica"></p:outputLabel>
                             <p:selectOneMenu id="familiaList" value="#{plantasMB.familiaarboreaId}" >
                                 <f:selectItems value="#{plantasMB.listFamiliaArborea()}" var = "familiaArborea" itemLabel="#{familiaArborea.nome}" itemValue="#{familiaArborea.id}" ></f:selectItems>
                             </p:selectOneMenu>
 
-                            <p:outputLabel value="Selecione origem:  "></p:outputLabel>                    
+                            <p:outputLabel value="Tipos de uso  "></p:outputLabel>                    
 
                             <p:dataTable var="categoria"   value="#{plantasMB.listCategorias()}" selection="#{plantasMB.categoria}" rowKey="#{categoria.id}">
 
@@ -50,10 +50,6 @@
                                     <h:outputText value="#{categoria.nome}" />
                                 </p:column>
                             </p:dataTable>                           
-
-                            <p:fileUpload fileUploadListener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="false"
-                                          multiple="true" update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-                            <p:growl id="messages" showDetail="true" />
                             <p:commandButton ajax="false" action="#{plantasMB.add()}" value="Cadastrar"/>
                         </h:panelGrid>
                     </p:panel>      

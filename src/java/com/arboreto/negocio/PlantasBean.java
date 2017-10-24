@@ -22,7 +22,7 @@ public class PlantasBean implements IPlantas {
     private ICategoria CategoriaBean;
 
     @Override
-    public void create(String nome, String origem, String latitude, String longitude, String nomeCientifico, String caracteristicas,
+    public void create(String nome, String origem, String latitude, String longitude, String nomeCientifico, 
             Long familia, List<Categoria> categoria) {
 
         familiaArborea farborea = null;
@@ -40,7 +40,6 @@ public class PlantasBean implements IPlantas {
         plantas.setLatitude(latitude);
         plantas.setLongitude(longitude);
         plantas.setNomeCientifico(nomeCientifico);
-        plantas.setCaracteristicas(caracteristicas);
         plantas.setFamilia(farborea);
         plantas.setCategoria(categoria);
 

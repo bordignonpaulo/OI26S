@@ -86,13 +86,6 @@ public class PlantasMB {
         this.nomeCientifico = nomeCientifico;
     }
 
-    public String getCaracteristicas() {
-        return caracteristicas;
-    }
-
-    public void setCaracteristicas(String caracteristicas) {
-        this.caracteristicas = caracteristicas;
-    }
 
     public Long getFamiliaarboreaId() {
         return familiaarboreaId;
@@ -138,7 +131,7 @@ public class PlantasMB {
 
     public String add() {
         try {
-            plantasBean.create(nome, origem, latitude, longitude, nomeCientifico, caracteristicas, familiaarboreaId, categoria);
+            plantasBean.create(nome, origem, latitude, longitude, nomeCientifico,  familiaarboreaId, categoria);
             return "adicionado";
         } catch (Exception e) {
             return "erro";
@@ -154,14 +147,14 @@ public class PlantasMB {
     public void init() {
         advancedModel = new DefaultMapModel();
 
-       /* plantasBean.consultar().forEach((p) -> {
+        plantasBean.consultar().forEach((p) -> {
             double lat = Double.parseDouble(p.getLatitude());
             double lng = Double.parseDouble(p.getLongitude());
 
             LatLng latlng = new LatLng(lat, lng);
 
-            advancedModel.addOverlay(new Marker(latlng, p.getNome(), p.getCaracteristicas(), "../images/tree.png"));
-        });*/
+            advancedModel.addOverlay(new Marker(latlng, p.getNome(),  "../images/tree.png"));
+        });
     }
 
     public MapModel getAdvancedModel() {

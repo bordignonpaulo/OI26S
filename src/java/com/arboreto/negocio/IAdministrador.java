@@ -9,6 +9,6 @@ public interface IAdministrador {
     
     public void create(String nome, String email, String senha, Long curso);
     public List<Administrador> consultar();
-    public List<Administrador> login(String email, String senha);
+    public int login(String email, String senha);
     
 }
