@@ -22,8 +22,8 @@
 
                             <p:outputLabel value="Origem"></p:outputLabel>
                             <p:selectOneRadio value="#{plantasMB.origem}" id="origem">
-                                <f:selectItem itemLabel="Nativa" itemValue="N"/>
-                                <f:selectItem itemLabel="Exótica" itemValue="E"/>
+                                <f:selectItem itemLabel="Nativa" itemValue="Nativa"/>
+                                <f:selectItem itemLabel="Exótica" itemValue="Exótica"/>
                             </p:selectOneRadio>
 
                             <p:outputLabel value="Latitude"></p:outputLabel>
@@ -38,10 +38,11 @@
                             </p:selectOneMenu>
 
                             <p:outputLabel value="Tipos de uso  "></p:outputLabel>                    
-
                             <p:dataTable var="categoria"   value="#{plantasMB.listCategorias()}" selection="#{plantasMB.categoria}" rowKey="#{categoria.id}">
-
-                                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                                <p:ajax event="rowSelectCheckbox" listener="#{plantasMB.addCategoria}"  />
+                                <p:ajax event="rowUnselectCheckbox" listener="#{caixaBean.removeCategoria}"  />
+                                
+                                <p:column selectionMode="multiple"  style="width:16px;text-align:center"/>
 
                                 <p:column headerText="Id">
                                     <h:outputText value="#{categoria.id}" />
@@ -49,7 +50,12 @@
                                 <p:column headerText="Nome">
                                     <h:outputText value="#{categoria.nome}" />
                                 </p:column>
-                            </p:dataTable>                           
+                            </p:dataTable> 
+
+                            <p:fileUpload fileUploadListener="#{plantasMB.handleFileUpload(event)}" mode="advanced" dragDropSupport="false"
+                                          multiple="true" update="messages" sizeLimit="100000"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" label="Escolher" uploadLabel="Enviar" cancelLabel="Cancelar" />
+
+                            <p:growl id="messages" showDetail="true" />
                             <p:commandButton ajax="false" action="#{plantasMB.add()}" value="Cadastrar"/>
                         </h:panelGrid>
                     </p:panel>      

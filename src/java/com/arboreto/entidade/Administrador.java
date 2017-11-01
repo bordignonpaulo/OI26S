@@ -17,8 +17,6 @@ public class Administrador implements Serializable {
     private String Nome;
     private String Email;
     private String Senha;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Curso curso;
 
     public Administrador() {
         super();
@@ -58,13 +56,6 @@ public class Administrador implements Serializable {
         this.Senha = Senha;
     }
 
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
 
     @Override
     public int hashCode() {
@@ -91,9 +82,11 @@ public class Administrador implements Serializable {
         return true;
     }
 
+
     @Override
     public String toString() {
-        return "Administrador{" + "id=" + id + ", Nome=" + Nome + ", Email=" + Email + ", Senha=" + Senha + ", curso=" + curso + '}';
+        return "Administrador{" + "id=" + id + ", Nome=" + Nome + ", Email=" + Email + ", Senha=" + Senha + '}';
     }
+    
     
 }

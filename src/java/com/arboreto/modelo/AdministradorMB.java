@@ -2,9 +2,7 @@
 package com.arboreto.modelo;
 
 import com.arboreto.negocio.IAdministrador;
-import com.arboreto.negocio.ICurso;
 import com.arboreto.entidade.Administrador;
-import com.arboreto.entidade.Curso;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -17,15 +15,10 @@ public class AdministradorMB {
     private String nome;
     private String email;
     private String senha;
-    private Long cursoId;
-    
-    private List<Curso> cursos;
     
     @EJB
     private IAdministrador admBean;
     
-    @EJB
-    private ICurso cursoBean;
 
     public String getNome() {
         return nome;
@@ -51,21 +44,8 @@ public class AdministradorMB {
         this.senha = senha;
     }
 
-    public Long getCursoId() {
-        return cursoId;
-    }
 
-    public void setCursoId(Long cursoId) {
-        this.cursoId = cursoId;
-    }
-
-    
-    
-    
-    public List<Curso> listCursos(){
-        return cursoBean.consultar();
-        
-    }
+  
     
     public List<Administrador> listAdministrador(){
         return admBean.consultar();
@@ -73,7 +53,7 @@ public class AdministradorMB {
     
     public String add(){
         try{
-            admBean.create(this.getNome(), this.getEmail(), this.getSenha(), this.getCursoId());
+            admBean.create(this.getNome(), this.getEmail(), this.getSenha());
             return "adicionado";
         }catch(Exception e){
             return "erro";
@@ -82,8 +62,10 @@ public class AdministradorMB {
     }
     
     public String login(){
+        
         try{
-            if(admBean.login(this.getEmail(), this.getSenha()) > 0)
+           
+            if(admBean.login(this.getEmail(), this.getSenha()) != null)
                 return "logado";
             else
                 return "erro";

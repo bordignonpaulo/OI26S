@@ -17,8 +17,8 @@
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
                 <h:form>
-                    <p:gmap id="gmap" center="-25.701613, -53.097914" zoom="13" type="ROADMAP" model="#{plantasMB.advancedModel}" style="width:100%; min-height: 800px;">
-                        <p:ajax event="overlaySelect" listener="#{plantasMB.onMarkerSelect(event)}" />
+                    <p:gmap id="gmap" center="-25.701613, -53.097914" zoom="20" type="ROADMAP" model="#{plantasMB.advancedModel}" style="width:100%; min-height: 800px;">
+                        <p:ajax event="overlaySelect" listener="#{plantasMB.init()}" />
                         <p:gmapInfoWindow id="infoWindow">
                             <p:outputPanel style="text-align: center; display: block; margin: auto">
                                 <p:graphicImage name="/" height="150" />

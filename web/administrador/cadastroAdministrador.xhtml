@@ -23,12 +23,6 @@
                             <p:outputLabel value="Senha"></p:outputLabel>
                             <p:password value="#{administradorMB.senha}" id="senha" />
 
-                            <p:outputLabel value="Curso"></p:outputLabel>
-                            <p:selectOneMenu id="cursoList" value="#{administradorMB.cursoId}" >
-                                <f:selectItems value="#{administradorMB.listCursos()}" var = "curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" ></f:selectItems>
-                            </p:selectOneMenu>
-
-
                             <p:commandButton value="Cadastrar" ajax="false" action="#{administradorMB.add()}"/>
 
                         </h:panelGrid>

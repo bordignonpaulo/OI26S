@@ -7,8 +7,8 @@ import javax.ejb.Local;
 @Local
 public interface IAdministrador {
     
-    public void create(String nome, String email, String senha, Long curso);
+    public void create(String nome, String email, String senha);
     public List<Administrador> consultar();
-    public int login(String email, String senha);
+    public List<Administrador> login(String email, String senha);
     
 }

@@ -9,8 +9,13 @@ import com.arboreto.negocio.IfamiliaArborea;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 import org.primefaces.event.map.OverlaySelectEvent;
 import org.primefaces.model.map.DefaultMapModel;
@@ -31,7 +36,6 @@ public class PlantasMB {
     private String latitude;
     private String longitude;
     private String nomeCientifico;
-    private String caracteristicas;
 
     private Long familiaarboreaId;
 
@@ -86,7 +90,6 @@ public class PlantasMB {
         this.nomeCientifico = nomeCientifico;
     }
 
-
     public Long getFamiliaarboreaId() {
         return familiaarboreaId;
     }
@@ -129,9 +132,19 @@ public class PlantasMB {
 
     }
 
+    public void addCategoria(SelectEvent event) {
+        Categoria categoriaTemp = ((Categoria) event.getObject());
+        categoria.add(categoriaTemp);
+    }
+
+    public void removeCategoria(UnselectEvent event) {
+        Categoria categoriaTemp = ((Categoria) event.getObject());
+        categoria.remove(categoriaTemp.getId());
+    }
+
     public String add() {
         try {
-            plantasBean.create(nome, origem, latitude, longitude, nomeCientifico,  familiaarboreaId, categoria);
+            plantasBean.create(nome, origem, latitude, longitude, nomeCientifico, familiaarboreaId, categoria);
             return "adicionado";
         } catch (Exception e) {
             return "erro";
@@ -141,6 +154,11 @@ public class PlantasMB {
 
     public List<Plantas> listaPlantas() {
         return plantasBean.consultar();
+    }
+
+    public void handleFileUpload(FileUploadEvent event) {
+        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
     @PostConstruct
@@ -153,7 +171,7 @@ public class PlantasMB {
 
             LatLng latlng = new LatLng(lat, lng);
 
-            advancedModel.addOverlay(new Marker(latlng, p.getNome(),  "../images/tree.png"));
+            advancedModel.addOverlay(new Marker(latlng, p.getNome()," ", "../images/tree.png"));
         });
     }
 

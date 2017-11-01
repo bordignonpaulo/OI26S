@@ -7,16 +7,22 @@
         <title>Arboreto System</title>
     </h:head>
     <h:body>
-        <div style="position: absolute; width: 500px; left: 50%; top:30%; margin-left: -250px;">
+        <div style="position: absolute; min-width: 500px; left: 50%; top:30%; margin-left: -250px;">
             <h:form>
                 <p:panel id="basic" header="Arboreto System" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="10">
-                        <p:outputLabel value="Email" />
-                        <p:inputText id="email" value="#{administradorMB.email}" required="required"/>
-                        <p:outputLabel value="Senha"/>
-                        <p:password id="senha" value="#{administradorMB.senha}" required="required"/>
+                        <p:outputLabel for="email" value="Email" />
+                        <p:inputText label="Email" id="email" value="#{administradorMB.email}" required="true"/>
                         <p:outputLabel/>
-                        <p:commandButton value="Entrar" ajax="false" action="#{administradorMB.login()}"/>
+                        <p:message for="email"/>
+                        
+                        <p:outputLabel for="senha" value="Senha"/>
+                        <p:password id="senha" value="#{administradorMB.senha}" label="Senha" required="true"/>
+                        <p:outputLabel/>
+                        <p:message for="senha"/>
+                        
+                        <p:outputLabel/>
+                        <p:commandButton value="Entrar" validateClient="true" ajax="false" action="#{administradorMB.login()}"/>
                     </h:panelGrid>
                 </p:panel>
             </h:form>
