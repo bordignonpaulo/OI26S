@@ -50,4 +50,30 @@ public class PlantasBean implements IPlantas {
     public List<Plantas> consultar() {
         return em.createQuery("SELECT p FROM Plantas p", Plantas.class).getResultList();
     }
+
+    @Override
+    public Plantas selecionar(Long id) {
+        Plantas planta = null;
+        try {
+            planta = em.find(Plantas.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return planta;
+    }
+
+    @Override
+    public boolean remover(Plantas planta) {
+        boolean sucesso = false;
+        try {
+            planta = em.find(Plantas.class, planta.getId());
+            em.remove(planta);
+            sucesso =  true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return sucesso;
+    }
 }

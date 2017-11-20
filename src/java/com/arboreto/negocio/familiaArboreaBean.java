@@ -28,6 +28,31 @@ public class familiaArboreaBean implements IfamiliaArborea  {
         return em.createQuery("SELECT f FROM familiaArborea f", familiaArborea.class).getResultList();
     }
 
+    @Override
+    public familiaArborea selecionar(Long id) {
+        familiaArborea farborea = null;
+         try {
+            farborea = em.find(familiaArborea.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return farborea;
+    }
+
+    @Override
+    public boolean remover(familiaArborea farborea) {
+       boolean sucesso = false;
+        try {
+            farborea = em.find(familiaArborea.class, farborea.getId());
+            em.remove(farborea);
+            sucesso = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return sucesso;
+    }
+
     
 
     

@@ -27,6 +27,33 @@ public class CategoriaBean implements ICategoria{
         return em.createQuery("SELECT c FROM Categoria c", Categoria.class).getResultList();
     }
 
+    @Override
+    public Categoria selecionar(Long id) {
+        Categoria categoria = null;
+        try{
+            categoria = em.find(Categoria.class, id);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return categoria;
+    }
+
+    @Override
+    public boolean remover(Categoria categoria) {
+         boolean sucesso = false;
+        try {
+            categoria = em.find(Categoria.class, categoria.getId() );
+            em.remove(categoria);
+            sucesso = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+ 
+        return sucesso;
+        
+    }
+
     
     
 }

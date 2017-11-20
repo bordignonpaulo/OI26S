@@ -12,4 +12,7 @@ public interface IPlantas {
             Long familia, List<Categoria> categoria);
 
     public List<Plantas> consultar();
+    
+    public Plantas selecionar(Long id);
+    public boolean remover(Plantas planta);
 }

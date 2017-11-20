@@ -52,10 +52,7 @@
                                 </p:column>
                             </p:dataTable> 
 
-                            <p:fileUpload fileUploadListener="#{plantasMB.handleFileUpload(event)}" mode="advanced" dragDropSupport="false"
-                                          multiple="true" update="messages" sizeLimit="100000"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" label="Escolher" uploadLabel="Enviar" cancelLabel="Cancelar" />
-
-                            <p:growl id="messages" showDetail="true" />
+                            
                             <p:commandButton ajax="false" action="#{plantasMB.add()}" value="Cadastrar"/>
                         </h:panelGrid>
                     </p:panel>      

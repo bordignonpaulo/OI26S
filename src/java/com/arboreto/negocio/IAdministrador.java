@@ -10,5 +10,6 @@ public interface IAdministrador {
     public void create(String nome, String email, String senha);
     public List<Administrador> consultar();
     public List<Administrador> login(String email, String senha);
-    
+    public Administrador selecionar(Long id);
+    public boolean remover(Administrador administrador);
 }

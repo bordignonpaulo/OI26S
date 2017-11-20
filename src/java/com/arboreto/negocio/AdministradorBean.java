@@ -34,4 +34,32 @@ public class AdministradorBean implements IAdministrador {
     public List<Administrador> login(String email, String senha){
        return em.createQuery("SELECT a FROM Administrador a WHERE (a.Senha = '" + senha + "') AND (a.Email = '"+ email+"')",Administrador.class).getResultList();
     }
+    
+    @Override
+    public Administrador selecionar(Long id){
+        Administrador administrador = null;
+        try {
+            administrador = em.find(Administrador.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+ 
+        return administrador;
+    }
+ 
+    @Override
+    public boolean remover(Administrador administrador){
+        boolean sucesso = false;
+        try {
+            administrador = em.find(Administrador.class, administrador.getId() );
+            em.remove(administrador);
+        sucesso = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+ 
+        return sucesso;
+    }
+    
+    
 }
