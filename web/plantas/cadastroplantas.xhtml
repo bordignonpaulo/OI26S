@@ -39,9 +39,7 @@
 
                             <p:outputLabel value="Tipos de uso  "></p:outputLabel>                    
                             <p:dataTable var="categoria"   value="#{plantasMB.listCategorias()}" selection="#{plantasMB.categoria}" rowKey="#{categoria.id}">
-                                <p:ajax event="rowSelectCheckbox" listener="#{plantasMB.addCategoria}"  />
-                                <p:ajax event="rowUnselectCheckbox" listener="#{caixaBean.removeCategoria}"  />
-                                
+                                                                
                                 <p:column selectionMode="multiple"  style="width:16px;text-align:center"/>
 
                                 <p:column headerText="Id">

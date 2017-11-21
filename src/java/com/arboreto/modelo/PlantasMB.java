@@ -9,14 +9,8 @@ import com.arboreto.negocio.IfamiliaArborea;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import org.primefaces.event.FileUploadEvent;
-import org.primefaces.event.SelectEvent;
-import org.primefaces.event.UnselectEvent;
-
 import org.primefaces.event.map.OverlaySelectEvent;
 import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.LatLng;
@@ -132,19 +126,10 @@ public class PlantasMB {
 
     }
 
-    public void addCategoria(SelectEvent event) {
-        Categoria categoriaTemp = ((Categoria) event.getObject());
-        categoria.add(categoriaTemp);
-    }
-
-    public void removeCategoria(UnselectEvent event) {
-        Categoria categoriaTemp = ((Categoria) event.getObject());
-        categoria.remove(categoriaTemp.getId());
-    }
-
     public String add() {
         try {
             plantasBean.create(nome, origem, latitude, longitude, nomeCientifico, familiaarboreaId, categoria);
+            carregarLocais();
             return "adicionado";
         } catch (Exception e) {
             return "erro";
@@ -156,34 +141,49 @@ public class PlantasMB {
         return plantasBean.consultar();
     }
 
-    public void handleFileUpload(FileUploadEvent event) {
-        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-
     @PostConstruct
     public void init() {
         advancedModel = new DefaultMapModel();
-
-        plantasBean.consultar().forEach((p) -> {
-            double lat = Double.parseDouble(p.getLatitude());
-            double lng = Double.parseDouble(p.getLongitude());
-
-            LatLng latlng = new LatLng(lat, lng);
-
-            advancedModel.addOverlay(new Marker(latlng, p.getNome()," ", "../images/tree.png"));
-        });
+        carregarLocais();
     }
 
     public MapModel getAdvancedModel() {
         return advancedModel;
     }
+    
+    private void carregarLocais() {
 
-    public void onMarkerSelect(OverlaySelectEvent event) {
-        marker = (Marker) event.getOverlay();
+        List<Plantas> locaisList = plantasBean.consultar();
+        for (Plantas p : locaisList) {
+            
+            double lat = Double.parseDouble(p.getLatitude());
+            double lng = Double.parseDouble(p.getLongitude());
+            
+            LatLng latlng = new LatLng(lat, lng);
+            
+            advancedModel.addOverlay(new Marker(latlng,p.getNome(),montarConteudo(p), "../images/tree.png"));
+        }
     }
 
     public Marker getMarker() {
         return marker;
     }
+    
+    public void onMarkerSelect(OverlaySelectEvent event) {
+        this.marker = (Marker) event.getOverlay();
+    }
+    
+     public void setMarker(Marker marker) {
+        this.marker = marker;
+    }
+     public String montarConteudo(Plantas p){
+     String conteudo = "";
+     
+     conteudo = "Nome  = "+ p.getNome() + System.lineSeparator()
+             +  "| Nome Científico = " + p.getNomeCientifico() + System.lineSeparator()
+             + " | Origem = " + p.getOrigem() + System.lineSeparator()
+             + " | Familia Botânica = "+ p.getFamilia().getNome() + System.lineSeparator();
+     
+     return conteudo;
+     }
 }

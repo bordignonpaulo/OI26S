@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Plantas implements Serializable {
@@ -21,13 +22,12 @@ private String latitude;
 private String longitude;
 private String nomeCientifico;
 
-@ElementCollection (fetch = FetchType.EAGER)
-private List<Imagens> imagens;
 
 @ManyToOne (fetch = FetchType.EAGER )
 private familiaArborea familia;
 
-@ElementCollection(fetch = FetchType.EAGER)
+
+@ElementCollection( fetch = FetchType.EAGER)
 private List<Categoria> categoria;
 
     public Plantas() {
@@ -74,14 +74,6 @@ private List<Categoria> categoria;
         this.longitude = longitude;
     }
     
-    public List<Imagens> getImagens() {
-        return imagens;
-    }
-
-    public void setImagens(List<Imagens> imagens) {
-        this.imagens = imagens;
-    }
-
     public String getNomeCientifico() {
         return nomeCientifico;
     }
@@ -133,7 +125,7 @@ private List<Categoria> categoria;
 
     @Override
     public String toString() {
-        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", imagens=" + imagens + ", familia=" + familia + ", categoria=" + categoria + '}';
+        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", familia=" + familia + ", categoria=" + categoria + '}';
     }
     
 }

@@ -3,10 +3,13 @@ package com.arboreto.modelo;
 
 import com.arboreto.negocio.IAdministrador;
 import com.arboreto.entidade.Administrador;
+import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -15,6 +18,9 @@ public class AdministradorMB {
     private String nome;
     private String email;
     private String senha;
+    
+    private Administrador administrador;
+    private List<Administrador> administradores;
     
     @EJB
     private IAdministrador admBean;
@@ -62,10 +68,11 @@ public class AdministradorMB {
     }
     
     public String login(){
-        
-        try{
-           
-            if(admBean.login(this.getEmail(), this.getSenha()) != null)
+        Administrador administrador = null;
+        try{        
+
+            administrador = (Administrador) admBean.login(this.getEmail(), this.getSenha());
+            if( administrador != null)
                 return "logado";
             else
                 return "erro";
@@ -73,5 +80,22 @@ public class AdministradorMB {
             return "erro";
         }
         
+    }
+    
+    public void selecionar(ActionEvent evento) {
+        //
+        //administrador = admBean.selecionar(id);
+    }
+ 
+    public void remover() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        boolean resultado = admBean.remover(administrador);
+ 
+        if (resultado) {
+            administrador = new Administrador();
+            context.addMessage(null, new FacesMessage("Cliente removido com sucesso"));
+        } else {
+            context.addMessage(null, new FacesMessage("Falha ao remover cliente!"));
+        }
     }
 }

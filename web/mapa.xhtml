@@ -18,12 +18,13 @@
             <ui:define name="central">
                 <h:form>
                     <p:gmap id="gmap" center="-25.701613, -53.097914" zoom="20" type="ROADMAP" model="#{plantasMB.advancedModel}" style="width:100%; min-height: 800px;">
-                        <p:ajax event="overlaySelect" listener="#{plantasMB.init()}" />
-                        <p:gmapInfoWindow id="infoWindow">
+                        <p:ajax event="overlaySelect" listener="#{plantasMB.onMarkerSelect}" />
+                        <p:gmapInfoWindow id="infoWindow" >
                             <p:outputPanel style="text-align: center; display: block; margin: auto">
-                                <p:graphicImage name="/" height="150" />
+                                <h:outputText value="#{plantasMB.marker.data}"/>
                                 <br />
-                                <h:outputText value="#{plantasMB.marker.title}" />
+                                <br />
+                                <strong><h:outputText value="#{plantasMB.marker.title}"  /></strong>
                             </p:outputPanel>
                         </p:gmapInfoWindow>
                     </p:gmap>
