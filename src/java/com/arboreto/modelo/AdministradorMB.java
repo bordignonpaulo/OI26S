@@ -68,11 +68,9 @@ public class AdministradorMB {
     }
     
     public String login(){
-        Administrador administrador = null;
+        
         try{        
-
-            administrador = (Administrador) admBean.login(this.getEmail(), this.getSenha());
-            if( administrador != null)
+            if( admBean.login(this.getEmail(), this.getSenha()) != null)
                 return "logado";
             else
                 return "erro";
