@@ -8,7 +8,7 @@ import javax.ejb.Local;
 @Local
 public interface ICategoria {
 
-    public void create(String nome);
+    public void create(Categoria categoria);
     public List<Categoria> consultar();
     public Categoria selecionar(Long id);
     public boolean remover(Categoria categoria);

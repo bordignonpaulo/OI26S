@@ -12,18 +12,20 @@ import javax.faces.bean.ManagedBean;
 @SessionScoped
 public class familiaArboreaMB implements Serializable {
 
-    private String nome;
+    private familiaArborea farborea = new familiaArborea();
 
     @EJB
     private IfamiliaArborea farboreaBean;
 
-    public String getNome() {
-        return nome;
+    public familiaArborea getFarborea() {
+        return farborea;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setFarborea(familiaArborea farborea) {
+        this.farborea = farborea;
     }
+
+    
 
     public List<familiaArborea> listFamiliaArborea() {
         return farboreaBean.consultar();
@@ -31,7 +33,7 @@ public class familiaArboreaMB implements Serializable {
 
     public String add() {
         try {
-            farboreaBean.create(this.getNome());
+            farboreaBean.create(farborea);
             return "adicionado";
         } catch (Exception e) {
             return "erro";

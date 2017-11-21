@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -27,8 +28,8 @@ private String nomeCientifico;
 private familiaArborea familia;
 
 
-@ElementCollection( fetch = FetchType.EAGER)
-private List<Categoria> categoria;
+@ManyToMany (fetch = FetchType.EAGER)
+private List<Categoria> categorias;
 
     public Plantas() {
         super();
@@ -91,12 +92,12 @@ private List<Categoria> categoria;
         this.familia = id;
     }
 
-    public List<Categoria> getCategoria() {
-        return categoria;
+    public List<Categoria> getCategorias() {
+        return categorias;
     }
 
-    public void setCategoria(List<Categoria> categoria) {
-        this.categoria = categoria;
+    public void setCategorias(List<Categoria> categoria) {
+        this.categorias = categoria;
     }
 
    
@@ -125,7 +126,7 @@ private List<Categoria> categoria;
 
     @Override
     public String toString() {
-        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", familia=" + familia + ", categoria=" + categoria + '}';
+        return "Plantas{" + "Id=" + Id + ", nome=" + nome + ", origem=" + origem + ", latitude=" + latitude + ", longitude=" + longitude + ", nomeCientifico=" + nomeCientifico + ", familia=" + familia + ", categorias=" + categorias + '}';
     }
     
 }

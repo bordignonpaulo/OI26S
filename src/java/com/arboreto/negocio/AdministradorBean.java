@@ -13,16 +13,9 @@ public class AdministradorBean implements IAdministrador {
     private EntityManager em;
     
     
-    public void create(String nome, String email, String senha){
-        
-        
-        Administrador adm = new Administrador();
-        
-        adm.setNome(nome);
-        adm.setEmail(email);
-        adm.setSenha(senha);
-        
-        em.persist(adm);
+    public void create(Administrador administrador){
+               
+        em.persist(administrador);
         
     };
     

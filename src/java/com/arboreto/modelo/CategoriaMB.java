@@ -14,26 +14,28 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class CategoriaMB {
     
-    private String nome;
+    private Categoria categoria = new Categoria();
     
     @EJB
     private ICategoria categoriaBean;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
     
     public List<Categoria> listCategoria(){
         return categoriaBean.consultar();
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    
     
     public String add(){
         try {
-             categoriaBean.create(this.getNome());
+             categoriaBean.create(categoria);
              return "adicionado";
         } catch (Exception e) {
             return "erro";

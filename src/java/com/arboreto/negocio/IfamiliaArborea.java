@@ -8,7 +8,7 @@ import javax.ejb.Local;
 @Local
 public interface IfamiliaArborea {
     
-    public void create(String nome);
+    public void create(familiaArborea farborea);
     public List<familiaArborea> consultar();
     public familiaArborea selecionar(Long id);
     public boolean remover(familiaArborea farborea);

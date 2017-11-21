@@ -14,11 +14,8 @@ public class familiaArboreaBean implements IfamiliaArborea  {
     private EntityManager em;
     
     @Override
-    public void create(String nome) {
-        familiaArborea farborea = new familiaArborea();
-        
-        farborea.setNome(nome);
-        
+    public void create(familiaArborea farborea) {
+                
         em.persist(farborea);
         
     }

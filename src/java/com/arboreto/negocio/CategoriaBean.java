@@ -14,10 +14,7 @@ public class CategoriaBean implements ICategoria{
     private EntityManager em;
 
     @Override
-    public void create(String nome) {
-        Categoria categoria = new Categoria();
-        
-        categoria.setNome(nome);
+    public void create(Categoria categoria) {
         
         em.persist(categoria);
     }
