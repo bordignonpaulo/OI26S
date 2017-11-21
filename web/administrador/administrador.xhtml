@@ -10,11 +10,15 @@
     <h:body>
         <ui:composition template="/index.xhtml">
             <ui:define name="central">
-                <p:commandButton style="margin: 20px;" action="adicionar" value="Adicionar administrador"/>
+                <p:commandButton action="adicionar" value="Adicionar Administrador"
+                                 style=" background:  linear-gradient( #CCCCCC, #CCCCCC, #CCCCCC, #CCCCCC );
+                                         margin-left:29%; margin-bottom: 2%; margin-top: 1%;
+                                         border:none; box-shadow: 0px 0px 0; width: 40%;"/>
+                
                 <h:form>
-                    <p:panel header="Administradores">
+                    <p:panel>
                         <p:dataTable var="administrador" value="#{administradorMB.listAdministrador()}">
-                            <p:column headerText="Id">
+                            <p:column headerText="Id" style="column-width: 10%;">
                                 <h:outputText value="#{administrador.id}" />
                             </p:column>
                             <p:column headerText="Nome">

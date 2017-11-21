@@ -7,23 +7,37 @@
         <title>Arboreto System</title>
     </h:head>
     <h:body>
-        <div style="position: absolute; min-width: 500px; left: 50%; top:30%; margin-left: -250px;">
+        <div style="position: absolute; min-width: 500px; left: 50%; top:15%; margin-left: -250px;">
             <h:form>
-                <p:panel id="basic" header="Arboreto System" style="margin-bottom:20px">
-                    <h:panelGrid columns="2" cellpadding="10">
-                        <p:outputLabel for="email" value="Email" />
-                        <p:inputText label="Email" id="email" value="#{administradorMB.email}" required="true"/>
+                <p:panel id="basic" style="margin-bottom:5px; border: solid 1px #000000;" > 
+                  
+                    <h:panelGrid cellpadding="3">
+                        <p:outputLabel>
+                         <img src="images/logo.png" style="width: 20%; height: 25%; margin-left: 40%;"/> 
+                        </p:outputLabel>
+                               
+                        <p:outputLabel for="email"  />
+                        <p:inputText placeholder="Usuário" label="Email" id="email" value="#{administradorMB.email}" 
+                                     style="margin-left:27%; border:none; border-bottom: solid 1px #000000; box-shadow: 0px 0px 0;"/>
                         <p:outputLabel/>
                         <p:message for="email"/>
-                        
-                        <p:outputLabel for="senha" value="Senha"/>
-                        <p:password id="senha" value="#{administradorMB.senha}" label="Senha" required="true"/>
+                       
+                        <p:outputLabel for="senha" />
+                        <p:password placeholder="Senha" id="senha" value="#{administradorMB.senha}" label="Senha" 
+                                    style="margin-left:27%; border:none; border-bottom: solid 1px #000000; box-shadow: 0px 0px 0;"/>
                         <p:outputLabel/>
                         <p:message for="senha"/>
                         
-                        <p:outputLabel/>
-                        <p:commandButton value="Entrar" validateClient="true" ajax="false" action="#{administradorMB.login()}"/>
+                        <p:outputLabel/><p:outputLabel/>
+                        
+                        <p:commandButton value="Entrar" validateClient="true" ajax="false" action="#{administradorMB.login()}"
+                                         style=" background:  linear-gradient( #CCCCCC, #CCCCCC, #CCCCCC, #CCCCCC );
+                                         margin-left:29%;  border:none; box-shadow: 0px 0px 0; width: 40%;"/>
+                    
+                       <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+                        
                     </h:panelGrid>
+                    
                 </p:panel>
             </h:form>
         </div>
