@@ -21,10 +21,7 @@ public class AdministradorMB implements Serializable{
     @EJB
     private IAdministrador admBean;
 
-    public AdministradorMB() {
-        administrador = new Administrador();
-    }
-
+    
     public Administrador getAdministrador() {
         return administrador;
     }
